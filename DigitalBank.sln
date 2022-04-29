@@ -7,9 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3088CB62-F6E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8C91939F-B245-49A1-8297-5A47C7F799CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBank.Domain", "DigitalBank.Domain\DigitalBank.Domain.csproj", "{F0CC76A4-40DE-490F-B1CF-A6DA1D0B22B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalBank.Domain", "DigitalBank.Domain\DigitalBank.Domain.csproj", "{F0CC76A4-40DE-490F-B1CF-A6DA1D0B22B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBank.Domain.Test", "DigitalBank.Domain.Test\DigitalBank.Domain.Test.csproj", "{D4335F3A-41EC-40B6-9B51-F1584C3EA348}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalBank.Domain.Test", "DigitalBank.Domain.Test\DigitalBank.Domain.Test.csproj", "{D4335F3A-41EC-40B6-9B51-F1584C3EA348}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalBank.Data", "DigitalBank.Data\DigitalBank.Data.csproj", "{B2C51534-62A4-4064-8B56-E0E4E77BFA6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBank.API", "DigitalBank.API\DigitalBank.API.csproj", "{DE2F573C-A074-4A82-BB7F-5624808AAC27}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,14 @@ Global
 		{D4335F3A-41EC-40B6-9B51-F1584C3EA348}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4335F3A-41EC-40B6-9B51-F1584C3EA348}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4335F3A-41EC-40B6-9B51-F1584C3EA348}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2C51534-62A4-4064-8B56-E0E4E77BFA6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2C51534-62A4-4064-8B56-E0E4E77BFA6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2C51534-62A4-4064-8B56-E0E4E77BFA6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2C51534-62A4-4064-8B56-E0E4E77BFA6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE2F573C-A074-4A82-BB7F-5624808AAC27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE2F573C-A074-4A82-BB7F-5624808AAC27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE2F573C-A074-4A82-BB7F-5624808AAC27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE2F573C-A074-4A82-BB7F-5624808AAC27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +44,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F0CC76A4-40DE-490F-B1CF-A6DA1D0B22B1} = {3088CB62-F6E1-4518-8A90-43E93DB678FD}
 		{D4335F3A-41EC-40B6-9B51-F1584C3EA348} = {8C91939F-B245-49A1-8297-5A47C7F799CD}
+		{B2C51534-62A4-4064-8B56-E0E4E77BFA6D} = {3088CB62-F6E1-4518-8A90-43E93DB678FD}
+		{DE2F573C-A074-4A82-BB7F-5624808AAC27} = {3088CB62-F6E1-4518-8A90-43E93DB678FD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1E253258-A79D-409E-900B-B28FCD7BC29A}

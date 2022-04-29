@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DigitalBank.Domain.Entities
 {
-    public class Cliente: ICliente
+    public class Cliente : ICliente
     {
         public long? id { get; set; }
         public string nome { get; set; }
@@ -20,7 +20,7 @@ namespace DigitalBank.Domain.Entities
 
         public ICollection<Conta> contas { get; set; }
 
-        public Cliente() 
+        public Cliente()
         {
             contas = new List<Conta>();
             dataDeCadastro = DateTime.Now;
@@ -38,11 +38,19 @@ namespace DigitalBank.Domain.Entities
             this.email = email;
             this.dataDeNascimento = dataDeNascimento;
         }
+        public bool addConta(Conta conta)
+        {
+            if (conta == null)
+                return false;
+            contas.Add(conta);
+            return true;
+        }
 
         public int RetornarQuantidadeContasAtivas() =>
             contas.Count(c => c.situacao.Equals(SituacaoConta.Ativa));
 
         public int RetornarQuantidadeContasFinalizadas() =>
             contas.Count(c => c.dataDeFinalizacao.HasValue);
+
     }
 }
