@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DigitalBank.Domain.Services
 {
-    internal class ClienteService : IClienteService
+    public class ClienteService : IClienteService
     {
         public ClienteService()
         {
@@ -32,7 +32,13 @@ namespace DigitalBank.Domain.Services
 
         public IEnumerable<Cliente> BuscarCliente()
         {
-            throw new NotImplementedException();
+            List<Cliente> clientes = new List<Cliente>();
+            for (int i = 1; i < 6; i++)
+            {
+                var c = new Cliente("Nome " + i, (i * 100000).ToString());
+                clientes.Add(c);
+            }
+            return clientes;
         }
 
         public Cliente BuscarClientePorId(long id)

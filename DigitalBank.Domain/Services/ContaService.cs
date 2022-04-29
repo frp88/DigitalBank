@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DigitalBank.Domain.Services
 {
-    internal class ContaService : IContaService
+    public class ContaService : IContaService
     {
         public ContaService()
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DigitalBank.Domain.Interfaces.Services
 {
-    internal interface IClienteService
+    public interface IClienteService
     {     
 
         IEnumerable<Cliente> BuscarCliente();
