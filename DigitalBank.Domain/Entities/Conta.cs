@@ -17,10 +17,12 @@ namespace DigitalBank.Domain.Entities
         public SituacaoConta situacao { get; private set; }
         public DateTime dataDeCadastro { get; set; }
 
+        public DateTime? dataDeFinalizacao { get; set; }
+
         public Conta()
         {
             saldo = 0;
-            situacao = SituacaoConta.Liberada;
+            situacao = SituacaoConta.Ativa;
             dataDeCadastro = DateTime.Now;
         }
 
@@ -36,7 +38,7 @@ namespace DigitalBank.Domain.Entities
             this.cliente = cliente;
             this.numero = numero;
         }
-
+     
         public virtual decimal Sacar(decimal valor)
         {
             if (valor > saldo)
@@ -54,6 +56,19 @@ namespace DigitalBank.Domain.Entities
         public string VerSaldo()
         {
             return saldo.ToString("C2");
+        }
+        public string Finalizar()
+        {
+            if (dataDeFinalizacao != null)
+                return "Essa conta já está finalizada / fechada.";
+            else if (saldo != 0)
+                return "Para fechar a conta o saldo precisa ser igual a R$ 0,00.";
+            else
+            {
+                situacao = SituacaoConta.Finalizada;
+                dataDeFinalizacao = DateTime.Now;
+                return "ok";
+            }
         }
     }
 }

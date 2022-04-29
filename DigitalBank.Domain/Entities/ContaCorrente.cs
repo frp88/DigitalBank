@@ -9,22 +9,13 @@ namespace DigitalBank.Domain.Entities
 {
     public class ContaCorrente : Conta, IContaCorrente
     {
-        public decimal limite { get; private set; }
+        public decimal limite { get; private set; } = 0;
 
-        public ContaCorrente() : base()
-        {
-            limite = 0;
-        }
+        public ContaCorrente() : base() { }
 
-        public ContaCorrente(Cliente cliente) : base(cliente)
-        {
-            limite = 0;
-        }
-
-        public ContaCorrente(Cliente cliente, long numero) : base(cliente, numero)
-        {
-            limite = 0;
-        }
+        public ContaCorrente(Cliente cliente) : base(cliente) { }
+        
+        public ContaCorrente(Cliente cliente, long numero) : base(cliente, numero) { }
         public ContaCorrente(Cliente cliente, long numero, decimal limite) : base(cliente, numero)
         {
             this.limite = limite;
@@ -36,7 +27,7 @@ namespace DigitalBank.Domain.Entities
             base.Sacar(valor);
             return saldo;
         }
-        decimal IContaCorrente.AlterarLimite(decimal novoLimite)
+        public decimal AlterarLimite(decimal novoLimite)
         {
             if (novoLimite < 0)
                 return -1;
@@ -44,7 +35,7 @@ namespace DigitalBank.Domain.Entities
             return limite;
         }
 
-        string IContaCorrente.VerLimite()
+        public string VerLimite()
         {
             return limite.ToString("C2");
         }

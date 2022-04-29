@@ -1,4 +1,5 @@
 ﻿using DigitalBank.Domain.Enumerations;
+using DigitalBank.Domain.Interfaces.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DigitalBank.Domain.Entities
 {
-    public class Cliente
+    public class Cliente: ICliente
     {
         public long? id { get; set; }
         public string nome { get; set; }
@@ -17,8 +18,11 @@ namespace DigitalBank.Domain.Entities
         public DateTime dataDeCadastro { get; set; }
         public SituacaoCliente situacao { get; set; }
 
-        public Cliente()
+        public ICollection<Conta> contas { get; set; }
+
+        public Cliente() 
         {
+            contas = new List<Conta>();
             dataDeCadastro = DateTime.Now;
             situacao = SituacaoCliente.Liberado;
         }
@@ -34,5 +38,11 @@ namespace DigitalBank.Domain.Entities
             this.email = email;
             this.dataDeNascimento = dataDeNascimento;
         }
+
+        public int RetornarQuantidadeContasAtivas() =>
+            contas.Count(c => c.situacao.Equals(SituacaoConta.Ativa));
+
+        public int RetornarQuantidadeContasFinalizadas() =>
+            contas.Count(c => c.dataDeFinalizacao.HasValue);
     }
 }

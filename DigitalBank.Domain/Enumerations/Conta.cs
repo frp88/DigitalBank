@@ -8,9 +8,9 @@ namespace DigitalBank.Domain.Enumerations
 {
     public enum SituacaoConta
     {
-        Liberada = 0,
+        Ativa = 0,
         Bloqueada = 1,
-        Cancelada = 2,
+        Desativada = 2,
         Finalizada = 3,
     }
 }

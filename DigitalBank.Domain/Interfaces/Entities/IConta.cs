@@ -11,5 +11,6 @@ namespace DigitalBank.Domain.Interfaces.Entities
         decimal Sacar(decimal valor);
         decimal Depositar(decimal valor);
         string VerSaldo();
+        string Finalizar();
     }
 }
