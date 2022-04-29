@@ -3,18 +3,11 @@ using DigitalBank.Domain.Interfaces.Services;
 using DigitalBank.Domain.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DigitalBank.API
 {
@@ -30,14 +23,15 @@ namespace DigitalBank.API
         public void ConfigureServices(IServiceCollection services)
         {
             // Define o contexto que sera utilizado
-            services.AddDbContext<DataContext>(
-                // Referencia o DB
-                context => context.UseSqlServer(Configuration.GetConnectionString("Default"))
+            services.AddDbContext<AppDataContext>(
+               // Referencia o DB
+               context => context.UseSqlServer(Configuration.GetConnectionString("Default"))
             );
 
             // Adiciona o Servico (Application) no escopo da API
-            services.AddScoped<IClienteService, ClienteService>();
-            services.AddScoped<IContaService, ContaService>();
+            //services.AddScoped<IClienteService, ClienteService>();
+            //services.AddScoped<IContaService, ContaService>();
+            services.AddScoped<IPessoaService, PessoaService>();
 
 
             services.AddControllers();

@@ -1,9 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using DigitalBank.Domain.Entities;
 using DigitalBank.Domain.Interfaces.Services;
 
@@ -23,7 +18,7 @@ namespace DigitalBank.API.Controllers
         #endregion
 
         #region APIs
-        // GET: api/contas
+        
         [HttpGet]
         public IActionResult Get()
         {
@@ -34,7 +29,6 @@ namespace DigitalBank.API.Controllers
             return Ok(contas);
         }
 
-        // GET api/contas/{id}
         [HttpGet("{id}")]
         public IActionResult Get(long id)
         {
@@ -45,7 +39,6 @@ namespace DigitalBank.API.Controllers
             return Ok(conta);
         }
 
-        // GET api/contas/buscar/{nome}
         [HttpGet("buscar/numero/{numero}")]
         public IActionResult GetPorNumero(long numero)
         {
@@ -56,7 +49,6 @@ namespace DigitalBank.API.Controllers
             return Ok(contas);
         }
 
-        // POST api/contas
         [HttpPost]
         public IActionResult Post([FromBody] Conta novaConta)
         {
@@ -65,7 +57,6 @@ namespace DigitalBank.API.Controllers
             return Created("", contaAdicionada);
         }
 
-        // PUT api/contas/{id}
         [HttpPut("{id}")]
         public IActionResult Put(long id, [FromBody] Conta contaAtualizada)
         {
@@ -76,7 +67,6 @@ namespace DigitalBank.API.Controllers
             return Ok(contaAtualizada);
         }
 
-        // DELETE api/contas/{id}
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
@@ -85,7 +75,6 @@ namespace DigitalBank.API.Controllers
                 return NotFound();
 
             return NoContent();
-
         }
         #endregion
 

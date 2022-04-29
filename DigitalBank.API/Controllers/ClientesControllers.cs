@@ -1,9 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using DigitalBank.Domain.Entities;
 using DigitalBank.Domain.Interfaces.Services;
 
@@ -23,7 +18,6 @@ namespace DigitalBank.API.Controllers
         #endregion
 
         #region APIs
-        // GET: api/clientes
         [HttpGet]
         public IActionResult Get()
         {
@@ -34,7 +28,6 @@ namespace DigitalBank.API.Controllers
             return Ok(clientes);
         }
 
-        // GET api/clientes/{id}
         [HttpGet("{id}")]
         public IActionResult Get(long id)
         {
@@ -45,7 +38,6 @@ namespace DigitalBank.API.Controllers
             return Ok(cliente);
         }
 
-        // GET api/clientes/buscar/{nome}
         [HttpGet("buscar/{nome}")]
         public IActionResult Get(string nome)
         {
@@ -56,7 +48,6 @@ namespace DigitalBank.API.Controllers
             return Ok(clientes);
         }
 
-        // POST api/clientes
         [HttpPost]
         public IActionResult Post([FromBody] Cliente novoCliente)
         {
@@ -65,7 +56,6 @@ namespace DigitalBank.API.Controllers
             return Created("", clienteAdicionado);
         }
 
-        // PUT api/clientes/{id}
         [HttpPut("{id}")]
         public IActionResult Put(long id, [FromBody] Cliente clienteAtualizado)
         {
@@ -76,7 +66,6 @@ namespace DigitalBank.API.Controllers
             return Ok(clienteAtualizado);
         }
 
-        // DELETE api/clientes/{id}
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
