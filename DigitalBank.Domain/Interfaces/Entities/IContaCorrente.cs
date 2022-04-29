@@ -8,8 +8,9 @@ namespace DigitalBank.Domain.Interfaces.Entities
 {
     internal interface IContaCorrente
     {
+        const int limiteMaximo = 1000;
         string VerLimite();
 
-        bool AlterarLimite(decimal novoLimite);
+        decimal AlterarLimite(decimal novoLimite);
     }
 }

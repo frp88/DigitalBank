@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DigitalBank.Domain.Entities
 {
-    public class Conta : IConta
+    public abstract class Conta : IConta
     {
         public long? id { get; set; }
         public Cliente cliente { get; set; }
@@ -31,7 +31,7 @@ namespace DigitalBank.Domain.Entities
             numero = random.Next();
         }
 
-        public Conta(Cliente cliente, int numero) : this()
+        public Conta(Cliente cliente, long numero) : this()
         {
             this.cliente = cliente;
             this.numero = numero;
