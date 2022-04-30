@@ -1,4 +1,6 @@
 using DigitalBank.Data.Context;
+using DigitalBank.Data.Repositories;
+using DigitalBank.Domain.Interfaces.Repositories;
 using DigitalBank.Domain.Interfaces.Services;
 using DigitalBank.Domain.Services;
 using Microsoft.AspNetCore.Builder;
@@ -22,13 +24,14 @@ namespace DigitalBank.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<AppDataContext>(context => context.UseSqlServer(Configuration.GetConnectionString("Default")));
+            services.AddDbContext<DataContext>(context => context.UseSqlServer(Configuration.GetConnectionString("Default")));
+
+            //services.AddScoped<IClienteRepository, ClienteRepository>();
 
             services.AddScoped<IClienteService, ClienteService>();
             services.AddScoped<IContaService, ContaService>();
             services.AddScoped<IContaCorrenteService, ContaCorrenteService>();
             services.AddScoped<IPessoaService, PessoaService>();
-
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

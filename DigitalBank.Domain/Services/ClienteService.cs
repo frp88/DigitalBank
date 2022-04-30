@@ -1,4 +1,5 @@
 ﻿using DigitalBank.Domain.Entities;
+using DigitalBank.Domain.Interfaces.Repositories;
 using DigitalBank.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,10 @@ namespace DigitalBank.Domain.Services
 {
     public class ClienteService : IClienteService
     {
-        public ClienteService()
+        private readonly DataContext _context;
+        public ClienteService(IClienteRepository clienteRepository)
         {
-
+            //_clienteRepository = clienteRepository;
         }
 
         public Cliente AdicionarCliente(Cliente novoCliente)
@@ -32,6 +34,10 @@ namespace DigitalBank.Domain.Services
 
         public IEnumerable<Cliente> BuscarCliente()
         {
+            //var clientes = _clienteRepository.Buscar();
+            //if (clientes == null)
+            //    return null;
+            //return clientes;
             List<Cliente> clientes = new List<Cliente>();
             for (int i = 1; i < 6; i++)
             {
