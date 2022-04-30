@@ -29,8 +29,8 @@ namespace DigitalBank.API
             );
 
             // Adiciona o Servico (Application) no escopo da API
-            //services.AddScoped<IClienteService, ClienteService>();
-            //services.AddScoped<IContaService, ContaService>();
+            services.AddScoped<IClienteService, ClienteService>();
+            services.AddScoped<IContaService, ContaService>();
             services.AddScoped<IPessoaService, PessoaService>();
 
 
