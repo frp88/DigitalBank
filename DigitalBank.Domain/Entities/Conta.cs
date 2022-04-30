@@ -24,6 +24,7 @@ namespace DigitalBank.Domain.Entities
             saldo = 0;
             situacao = SituacaoConta.Ativa;
             dataDeCadastro = DateTime.Now;
+            dataDeFinalizacao = null;
         }
 
         public Conta(Cliente cliente) : this()
@@ -38,19 +39,19 @@ namespace DigitalBank.Domain.Entities
             this.cliente = cliente;
             this.numero = numero;
         }
-     
-        public virtual decimal Sacar(decimal valor)
+
+        public virtual bool Sacar(decimal valor)
         {
             if (valor > saldo)
-                return -1;
+                return false;
             saldo -= valor;
-            return saldo;
+            return true;
         }
 
-        public decimal Depositar(decimal valor)
+        public bool Depositar(decimal valor)
         {
             saldo += valor;
-            return saldo;
+            return true;
         }
 
         public string VerSaldo()

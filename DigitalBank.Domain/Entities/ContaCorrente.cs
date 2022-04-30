@@ -14,25 +14,25 @@ namespace DigitalBank.Domain.Entities
         public ContaCorrente() : base() { }
 
         public ContaCorrente(Cliente cliente) : base(cliente) { }
-        
+
         public ContaCorrente(Cliente cliente, long numero) : base(cliente, numero) { }
         public ContaCorrente(Cliente cliente, long numero, decimal limite) : base(cliente, numero)
         {
             this.limite = limite;
         }
-        public override decimal Sacar(decimal valor)
+        public override bool Sacar(decimal valor)
         {
             if (valor > (base.saldo + limite))
-                return -1;
+                return false;
             base.Sacar(valor);
-            return saldo;
+            return true;
         }
-        public decimal AlterarLimite(decimal novoLimite)
+        public bool AlterarLimite(decimal novoLimite)
         {
             if (novoLimite < 0)
-                return -1;
+                return false;
             limite = (novoLimite > IContaCorrente.limiteMaximo ? IContaCorrente.limiteMaximo : novoLimite);
-            return limite;
+            return true;
         }
 
         public string VerLimite()

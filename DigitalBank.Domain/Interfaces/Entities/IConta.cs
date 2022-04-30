@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DigitalBank.Domain.Interfaces.Entities
 {
-    internal interface IConta
+    public interface IConta
     {
-        decimal Sacar(decimal valor);
-        decimal Depositar(decimal valor);
+        bool Sacar(decimal valor);
+        bool Depositar(decimal valor);
         string VerSaldo();
         string Finalizar();
     }

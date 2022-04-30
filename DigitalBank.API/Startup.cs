@@ -22,15 +22,11 @@ namespace DigitalBank.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            // Define o contexto que sera utilizado
-            services.AddDbContext<AppDataContext>(
-               // Referencia o DB
-               context => context.UseSqlServer(Configuration.GetConnectionString("Default"))
-            );
+            //services.AddDbContext<AppDataContext>(context => context.UseSqlServer(Configuration.GetConnectionString("Default")));
 
-            // Adiciona o Servico (Application) no escopo da API
             services.AddScoped<IClienteService, ClienteService>();
             services.AddScoped<IContaService, ContaService>();
+            services.AddScoped<IContaCorrenteService, ContaCorrenteService>();
             services.AddScoped<IPessoaService, PessoaService>();
 
 

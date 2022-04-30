@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DigitalBank.Domain.Interfaces.Entities
 {
-    internal interface ICliente
+    public interface ICliente
     {
         bool addConta(Conta conta);
         int RetornarQuantidadeContasAtivas();

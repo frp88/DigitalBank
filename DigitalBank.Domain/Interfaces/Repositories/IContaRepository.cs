@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DigitalBank.Domain.Interfaces.Repositories
 {
-    internal interface IContaRepository
+    public interface IContaRepository
     {     
         IEnumerable<Conta> Buscar();
 

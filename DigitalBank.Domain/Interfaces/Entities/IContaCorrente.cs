@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DigitalBank.Domain.Interfaces.Entities
 {
-    internal interface IContaCorrente
+    public interface IContaCorrente
     {
         const int limiteMaximo = 1000;
         string VerLimite();
 
-        decimal AlterarLimite(decimal novoLimite);
+        bool AlterarLimite(decimal novoLimite);
     }
 }
