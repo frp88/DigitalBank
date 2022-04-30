@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DigitalBank.Data.Migrations
 {
-    [DbContext(typeof(AppDataContext))]
-    [Migration("20220430125102_Initial")]
+    [DbContext(typeof(DataContext))]
+    [Migration("20220430130641_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

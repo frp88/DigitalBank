@@ -5,24 +5,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DigitalBank.Data.Context
 {
-    public class AppDataContext : DbContext
+    public class DataContext : DbContext
     {
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Conta> Contas { get; set; }
-
         public DbSet<ContaCorrente> ContasCorrentes { get; set; }
         public DbSet<Pessoa> Pessoas { get; set; }
 
-        public AppDataContext() { }
+        //public DataContext() { }
 
-        //public AppDataContext(DbContextOptions<AppDataContext> options) : base(options) { }
+        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
-        {
-            optionBuilder.UseSqlServer(DbConfiguration.getConnection());
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
+        //{
+        //    optionBuilder.UseSqlServer(DbConfiguration.getConnection());
+        //}
 
-            //optionBuilder.UseSqlServer(@"Data Source = localhost; Initial Catalog = digitalbank; Integrated Security = True;");
-
-        }
     }
 }
