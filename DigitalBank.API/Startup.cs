@@ -1,7 +1,7 @@
 using DigitalBank.Data.Context;
 using DigitalBank.Data.Repositories;
 using DigitalBank.Domain.Interfaces.Repositories;
-using DigitalBank.Service.Interfaces;
+using DigitalBank.Domain.Interfaces.Services;
 using DigitalBank.Service.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,7 +30,7 @@ namespace DigitalBank.API
             services.AddScoped<IClienteService, ClienteService>();
             services.AddScoped<IContaRepository, ContaRepository>();
             services.AddScoped<IContaService, ContaService>();
-                        
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

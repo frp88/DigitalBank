@@ -1,6 +1,6 @@
 ﻿using DigitalBank.Domain.Entities;
 using DigitalBank.Domain.Interfaces.Repositories;
-using DigitalBank.Service.Interfaces;
+using DigitalBank.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;

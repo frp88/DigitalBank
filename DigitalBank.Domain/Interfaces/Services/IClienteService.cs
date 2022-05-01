@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DigitalBank.Service.Interfaces
+namespace DigitalBank.Domain.Interfaces.Services
 {
     public interface IClienteService
     {

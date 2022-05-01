@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DigitalBank.Domain.Entities;
-using DigitalBank.Service.Interfaces;
+using DigitalBank.Domain.Interfaces.Services;
 using System.Threading.Tasks;
 
 namespace DigitalBank.API.Controllers

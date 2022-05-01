@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DigitalBank.Service.Interfaces
+namespace DigitalBank.Domain.Interfaces.Services
 {
     public interface IContaService
     {
         Task<IEnumerable<Conta>> BuscarContas();
-
         Task<Conta> BuscarContaPorId(long id);
 
         Task<Conta> BuscarContaPorNumero(long numero);
