@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalBank.API", "DigitalB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalBank.Service", "DigitalBank.Service\DigitalBank.Service.csproj", "{0DD73FB1-1E7F-4C4F-BC42-814AA5BC63B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBank.Data.Test", "DigitalBank.Data.Test\DigitalBank.Data.Test.csproj", "{62F7D804-428D-41D8-8B19-485008C505FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalBank.Data.Test", "DigitalBank.Data.Test\DigitalBank.Data.Test.csproj", "{62F7D804-428D-41D8-8B19-485008C505FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

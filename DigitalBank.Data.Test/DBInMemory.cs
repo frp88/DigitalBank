@@ -19,12 +19,12 @@ namespace DigitalBank.Data.Test
                 .Options;
 
             _context = new DataContext(options);
-            InsertFakeData();
+            InsereDadosFicticios();
         }
 
         public DataContext GetContext() => _context;
 
-        private void InsertFakeData()
+        private void InsereDadosFicticios()
         {
             if (_context.Database.EnsureCreated())
             {
