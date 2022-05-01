@@ -36,9 +36,7 @@ namespace DigitalBank.Data.Migrations
                     saldo = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     situacao = table.Column<int>(type: "int", nullable: false),
                     dataDeCadastro = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    dataDeFinalizacao = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    limite = table.Column<decimal>(type: "decimal(18,2)", nullable: true)
+                    dataDeFinalizacao = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {

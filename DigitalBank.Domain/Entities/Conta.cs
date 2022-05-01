@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DigitalBank.Domain.Entities
 {
-    public abstract class Conta : IConta
+    public class Conta : IConta
     {
         [Key]
         public long? id { get; set; }

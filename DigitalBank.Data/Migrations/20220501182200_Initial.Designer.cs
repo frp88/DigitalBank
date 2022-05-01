@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DigitalBank.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220501154556_Initial")]
+    [Migration("20220501182200_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,10 +63,6 @@ namespace DigitalBank.Data.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<long?>("clienteid")
                         .HasColumnType("bigint");
 
@@ -90,18 +86,6 @@ namespace DigitalBank.Data.Migrations
                     b.HasIndex("clienteid");
 
                     b.ToTable("Contas");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Conta");
-                });
-
-            modelBuilder.Entity("DigitalBank.Domain.Entities.ContaCorrente", b =>
-                {
-                    b.HasBaseType("DigitalBank.Domain.Entities.Conta");
-
-                    b.Property<decimal>("limite")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasDiscriminator().HasValue("ContaCorrente");
                 });
 
             modelBuilder.Entity("DigitalBank.Domain.Entities.Conta", b =>

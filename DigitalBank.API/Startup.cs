@@ -28,11 +28,9 @@ namespace DigitalBank.API
 
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<IClienteService, ClienteService>();
-
-            //services.AddScoped<IContaService, ContaService>();
-            //services.AddScoped<IContaCorrenteService, ContaCorrenteService>();
-            //services.AddScoped<IPessoaService, PessoaService>();
-
+            services.AddScoped<IContaRepository, ContaRepository>();
+            services.AddScoped<IContaService, ContaService>();
+                        
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

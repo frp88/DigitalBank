@@ -1,86 +1,80 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DigitalBank.Domain.Entities;
+using DigitalBank.Service.Interfaces;
+using System.Threading.Tasks;
 
 namespace DigitalBank.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/conta")]
     public class ContasControllers : ControllerBase
     {
-       // private readonly IContaService _contasService;
+        private readonly IContaService _contasService;
 
         #region CONSTRUTOR
-        public ContasControllers()
+       
+        public ContasControllers(IContaService contasService)
         {
-          
+            _contasService = contasService;
         }
-        //public ContasControllers(IContaService contasService)
-        //{
-        //    _contasService = contasService;
-        //}
         #endregion
 
         #region APIs
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return NotFound();
-            //var contas = _contasService.BuscarConta();
-            //if (contas == null)
-            //    return NotFound();
+            var contas = await _contasService.BuscarContas();
+            if (contas == null)
+                return NotFound();
 
-            //return Ok(contas);
+            return Ok(contas);
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(long id)
+        public async Task<IActionResult> Get(long id)
         {
-            return NotFound();
-            //var conta = _contasService.BuscarContaPorId(id);
-            //if (conta == null)
-            //    return NotFound();
+            var conta = await _contasService.BuscarContaPorId(id);
+            if (conta == null)
+                return NotFound();
 
-            //return Ok(conta);
+            return Ok(conta);
         }
 
         [HttpGet("buscar/numero/{numero}")]
-        public IActionResult GetPorNumero(long numero)
+        public async Task<IActionResult> GetPorNumero(long numero)
         {
-            return NotFound();
-            //var contas = _contasService.BuscarContaPorNumero(numero);
-            //if (contas == null)
-            //    return NotFound();
+            var conta = await _contasService.BuscarContaPorNumero(numero);
+            if (conta == null)
+                return NotFound();
 
-            //return Ok(contas);
+            return Ok(conta);
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Conta novaConta)
+        public async Task<IActionResult> Post([FromBody] ContaCorrente novaContaCorrente)
         {
-            return NotFound();
-            //Conta contaAdicionada = _contasService.AdicionarConta(novaConta);
-            //return Created("", contaAdicionada);
+            //ContaCorrente cc = (ContaCorrente)novaConta;
+            Conta contaAdicionada = await _contasService.AdicionarConta(novaContaCorrente);
+            return Created("", contaAdicionada);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(long id, [FromBody] Conta contaAtualizada)
+        public async Task<IActionResult> Put(long id, [FromBody] Conta contaAtualizada)
         {
-            return NotFound();
-            //contaAtualizada = _contasService.AtualizarConta(id, contaAtualizada);
-            //if (contaAtualizada == null)
-            //    return NotFound();
-            //return Ok(contaAtualizada);
+            contaAtualizada = await _contasService.AtualizarConta(id, contaAtualizada);
+            if (contaAtualizada == null)
+                return NotFound();
+            return Ok(contaAtualizada);
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(long id)
+        public async Task<IActionResult> Delete(long id)
         {
-            return NotFound();
-            //bool remocaoOk = _contasService.RemoverConta(id);
-            //if (remocaoOk == false)
-            //    return NotFound();
-            //return NoContent();
+            bool remocaoOk = await _contasService.RemoverConta(id);
+            if (remocaoOk == false)
+                return NotFound();
+            return NoContent();
         }
         #endregion
 

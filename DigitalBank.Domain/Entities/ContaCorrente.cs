@@ -10,8 +10,6 @@ namespace DigitalBank.Domain.Entities
 {
     public class ContaCorrente : Conta, IContaCorrente
     {
-        [Required(ErrorMessage = "O campo {0} é obrigatório."),
-          Range(0, Int64.MaxValue)]
         public decimal limite { get; private set; } = 0;
 
         public ContaCorrente() : base() { }

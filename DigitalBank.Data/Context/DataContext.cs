@@ -8,7 +8,6 @@ namespace DigitalBank.Data.Context
     {
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Conta> Contas { get; set; }
-        public DbSet<ContaCorrente> ContasCorrentes { get; set; }
         
         public DataContext() { }
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }

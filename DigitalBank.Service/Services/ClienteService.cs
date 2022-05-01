@@ -21,7 +21,7 @@ namespace DigitalBank.Service.Services
         {
             var adicaoOk = await _clienteRepository.Adicionar(cliente);
             if (adicaoOk == false)
-                throw new Exception("Falha ao cadastrar o cliente");
+                throw new Exception("Falha ao cadastrar o cliente.");
             return cliente;
         }
 
@@ -56,7 +56,7 @@ namespace DigitalBank.Service.Services
             return cliente;
         }
 
-        public async Task<IEnumerable<Cliente>> BuscarClientePorNome(string nome)
+        public async Task<IEnumerable<Cliente>> BuscarClientesPorNome(string nome)
         {
             var clientes = await _clienteRepository.BuscarPorNome(nome);
             return clientes;

@@ -1,27 +1,22 @@
 ﻿using DigitalBank.Domain.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DigitalBank.Domain.Interfaces.Repositories
 {
     public interface IContaRepository
-    {     
-        IEnumerable<Conta> Buscar();
+    {
+        Task<IEnumerable<Conta>> Buscar();
 
-        Conta BuscarPorId(long id);
+        Task<Conta> BuscarPorId(long id);
 
-        IEnumerable<Conta> BuscarPorNumero(long numero);
+        Task<Conta> BuscarPorNumero(long numero);
 
-        Conta Adicionar(Conta novaConta);
+        Task<bool> Adicionar(Conta conta);
 
-        bool AdicionarConta(Conta conta);
+        Task<bool> Atualizar(Conta conta);
 
-        Conta Atualizar(long id, Conta ContaAtualizada);
-
-        bool Remover(long id);
+        Task<bool> Remover(Conta conta);
 
     }
 }

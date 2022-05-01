@@ -42,7 +42,7 @@ namespace DigitalBank.API.Controllers
         [HttpGet("buscar/{nome}")]
         public async Task<IActionResult> Get(string nome)
         {
-            var cliente = await _clientesService.BuscarClientePorNome(nome);
+            var cliente = await _clientesService.BuscarClientesPorNome(nome);
             if (cliente == null)
                 return NotFound();
 
