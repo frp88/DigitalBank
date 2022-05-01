@@ -21,6 +21,6 @@ namespace DigitalBank.Service.Interfaces
 
         Task<Cliente> AtualizarCliente(long id, Cliente clienteAtualizado);
 
-        Task<bool> RemoverCliente(long id, Cliente clienteRemovido);
+        Task<bool> RemoverCliente(long id);
     }
 }

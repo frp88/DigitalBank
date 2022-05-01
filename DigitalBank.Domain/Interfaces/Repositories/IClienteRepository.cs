@@ -12,13 +12,13 @@ namespace DigitalBank.Domain.Interfaces.Repositories
 
         Task<IEnumerable<Cliente>> BuscarPorNome(string nome);
 
-        Task<bool> Adicionar(Cliente novoCliente);
+        Task<bool> Adicionar(Cliente cliente);
 
         Task<bool> AdicionarConta(Cliente cliente, Conta conta);
 
-        Task<bool> Atualizar(long id, Cliente clienteAtualizado);
+        Task<bool> Atualizar(Cliente cliente);
 
-        Task<bool> Remover(long id, Cliente clienteRemovido);
+        Task<bool> Remover(Cliente cliente);
 
     }
 }

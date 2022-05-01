@@ -44,12 +44,11 @@ namespace DigitalBank.API.Controllers
         [HttpGet("buscar/{nome}")]
         public async Task<IActionResult> Get(string nome)
         {
-            return NotFound();
-            //var clientes = _clientesService.BuscarClientePorNome(nome);
-            //if (clientes == null)
-            //    return NotFound();
+            var cliente = await _clientesService.BuscarClientePorNome(nome);
+            if (cliente == null)
+                return NotFound();
 
-            //return Ok(clientes);
+            return Ok(cliente);
         }
 
         [HttpPost]
@@ -76,13 +75,11 @@ namespace DigitalBank.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(long id)
         {
-            return NotFound();
+            bool remocaoOk = await _clientesService.RemoverCliente(id);
+            if (remocaoOk == false)
+                return NotFound();
 
-            //bool remocaoOk = _clientesService.RemoverCliente(id);
-            //if (remocaoOk == false)
-            //    return NotFound();
-
-            //return NoContent();
+            return NoContent();
         }
         #endregion
 

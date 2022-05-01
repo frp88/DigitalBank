@@ -66,9 +66,13 @@ namespace DigitalBank.Service.Services
             return clientes;
         }
 
-        public async Task<bool> RemoverCliente(long id, Cliente clienteRemovido)
+        public async Task<bool> RemoverCliente(long id)
         {
-            return await _clienteRepository.Remover(id, clienteRemovido);
+            var cliente = await _clienteRepository.BuscarPorId(id);
+            if (cliente == null)
+                return false;
+
+            return await _clienteRepository.Remover(cliente);
         }
     }
 }

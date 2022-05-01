@@ -18,9 +18,9 @@ namespace DigitalBank.Data.Repositories
             _context = context;
         }
 
-        public async Task<bool> Adicionar(Cliente novoCliente)
+        public async Task<bool> Adicionar(Cliente cliente)
         {
-            _context.Add(novoCliente);
+            _context.Add(cliente);
             return await _context.SaveChangesAsync() > 0;
         }
 
@@ -29,9 +29,9 @@ namespace DigitalBank.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<bool> Atualizar(long id, Cliente clienteAtualizado)
+        public async Task<bool> Atualizar(Cliente cliente)
         {
-            _context.Update(clienteAtualizado);
+            _context.Update(cliente);
             return await _context.SaveChangesAsync() > 0;
         }
 
@@ -57,9 +57,9 @@ namespace DigitalBank.Data.Repositories
                .ToListAsync();
         }
 
-        public async Task<bool> Remover(long id, Cliente clienteRemovido)
+        public async Task<bool> Remover(Cliente cliente)
         {
-            _context.Remove(clienteRemovido);
+            _context.Remove(cliente);
             return await _context.SaveChangesAsync() > 0;
         }
     }
