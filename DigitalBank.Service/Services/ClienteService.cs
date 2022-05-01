@@ -17,12 +17,12 @@ namespace DigitalBank.Service.Services
             _clienteRepository = clienteRepository;
         }
 
-        public async Task<Cliente> AdicionarCliente(Cliente novoCliente)
+        public async Task<Cliente> AdicionarCliente(Cliente cliente)
         {
-            var clienteAdicionado = await _clienteRepository.Adicionar(novoCliente);
-            if (!clienteAdicionado)
+            var adicaoOk = await _clienteRepository.Adicionar(cliente);
+            if (adicaoOk == false)
                 throw new Exception("Falha ao cadastrar o cliente");
-            return novoCliente;
+            return cliente;
         }
 
         public async Task<bool> AdicionarContaParaCliente(Cliente cliente, Conta conta)
@@ -30,11 +30,17 @@ namespace DigitalBank.Service.Services
             return await _clienteRepository.AdicionarConta(cliente, conta);
         }
 
-        public async Task<Cliente> AtualizarCliente(long id, Cliente clienteAtualizado)
+        public async Task<Cliente> AtualizarCliente(long id, Cliente cliente)
         {
-            //clienteAtualizado = _clienteRepository.Atualizar(id, clienteAtualizado);
-            //return clienteAtualizado;
-            throw new NotImplementedException();
+            if (await _clienteRepository.BuscarPorId(id) == null)
+                return null;
+
+            var atualizacaoOk = await _clienteRepository.Atualizar(cliente);
+            if (!atualizacaoOk)
+                return null;
+            // throw new Exception("Falha ao atualizar o cliente");
+
+            return cliente;
         }
 
         public async Task<IEnumerable<Cliente>> BuscarClientes()
@@ -43,13 +49,6 @@ namespace DigitalBank.Service.Services
             if (clientes == null || clientes.ToList().Count == 0)
                 return null;
             return clientes;
-            //List<Cliente> clientes = new List<Cliente>();
-            //for (int i = 1; i < 6; i++)
-            //{
-            //    var c = new Cliente("Nome " + i, (i * 100000).ToString());
-            //    clientes.Add(c);
-            //}
-            //return clientes;
         }
 
         public async Task<Cliente> BuscarClientePorId(long id)

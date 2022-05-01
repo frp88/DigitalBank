@@ -63,13 +63,11 @@ namespace DigitalBank.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(long id, [FromBody] Cliente clienteAtualizado)
         {
-            return NotFound();
+            clienteAtualizado = await _clientesService.AtualizarCliente(id, clienteAtualizado);
+            if (clienteAtualizado == null)
+                return NotFound();
 
-            //clienteAtualizado = _clientesService.AtualizarCliente(id, clienteAtualizado);
-            //if (clienteAtualizado == null)
-            //    return NotFound();
-
-            //return Ok(clienteAtualizado);
+            return Ok(clienteAtualizado);
         }
 
         [HttpDelete("{id}")]
