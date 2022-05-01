@@ -8,7 +8,7 @@ namespace DigitalBank.Data.Configurations
 {
     static class DbConfiguration
     {
-        private const string _connectionString = "Data Source = localhost; Initial Catalog = digitalbank; Integrated Security = True;";
+        private const string _connectionString = @"Data Source=localhost;Initial Catalog=digitalbank;Integrated Security=True;";
 
         public static string getConnection()
         {

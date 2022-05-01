@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DigitalBank.Domain.Interfaces.Services
+namespace DigitalBank.Service.Interfaces
 {
     public interface IContaService
-    {     
-
+    {
         IEnumerable<Conta> BuscarConta();
 
         Conta BuscarContaPorId(long id);
@@ -21,10 +20,5 @@ namespace DigitalBank.Domain.Interfaces.Services
         Conta AtualizarConta(long id, Conta ContaAtualizada);
 
         bool RemoverConta(long id);
-
-        // bool temContasNoDB();
-
-        // void SalvaCincoContasNoDB();
-
     }
 }
