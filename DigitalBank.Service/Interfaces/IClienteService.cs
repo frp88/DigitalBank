@@ -9,7 +9,7 @@ namespace DigitalBank.Service.Interfaces
 {
     public interface IClienteService
     {
-        IEnumerable<Cliente> BuscarCliente();
+        Task<IEnumerable<Cliente>> BuscarClientes();
 
         Cliente BuscarClientePorId(long id);
 

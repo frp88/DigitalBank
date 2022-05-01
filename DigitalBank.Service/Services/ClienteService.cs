@@ -4,7 +4,6 @@ using DigitalBank.Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DigitalBank.Service.Services
@@ -20,8 +19,10 @@ namespace DigitalBank.Service.Services
 
         public Cliente AdicionarCliente(Cliente novoCliente)
         {
-            Cliente clienteAdicionado = _clienteRepository.Adicionar(novoCliente);
-            return clienteAdicionado;
+            var clienteAdicionado = _clienteRepository.Adicionar(novoCliente);
+            if (!clienteAdicionado)
+                throw new Exception("Falha ao cadastrar o cliente");
+            return novoCliente;
         }
 
         public bool AdicionarContaParaCliente(Cliente cliente, Conta conta)
@@ -31,14 +32,15 @@ namespace DigitalBank.Service.Services
 
         public Cliente AtualizarCliente(long id, Cliente clienteAtualizado)
         {
-            clienteAtualizado = _clienteRepository.Atualizar(id, clienteAtualizado);
-            return clienteAtualizado;
+            //clienteAtualizado = _clienteRepository.Atualizar(id, clienteAtualizado);
+            //return clienteAtualizado;
+            throw new NotImplementedException();
         }
 
-        public IEnumerable<Cliente> BuscarCliente()
+        public async Task<IEnumerable<Cliente>> BuscarClientes()
         {
-            var clientes = _clienteRepository.Buscar();
-            if (clientes == null)
+            var clientes = await _clienteRepository.Buscar();
+            if (clientes == null || clientes.ToList().Count == 0)
                 return null;
             return clientes;
             //List<Cliente> clientes = new List<Cliente>();
@@ -52,10 +54,8 @@ namespace DigitalBank.Service.Services
 
         public Cliente BuscarClientePorId(long id)
         {
-            var clientes = _clienteRepository.BuscarPorId(id);
-            if (clientes == null)
-                return null;
-            return clientes;
+            var cliente = _clienteRepository.BuscarPorId(id);
+            return cliente;
         }
 
         public IEnumerable<Cliente> BuscarClientePorNome(string nome)

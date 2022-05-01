@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DigitalBank.Domain.Entities;
-using System.Collections.Generic;
 using DigitalBank.Service.Interfaces;
+using System.Threading.Tasks;
 
 namespace DigitalBank.API.Controllers
 {
@@ -22,32 +22,23 @@ namespace DigitalBank.API.Controllers
 
         #region APIs
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            var clientes = _clientesService.BuscarCliente();
+            var clientes = await _clientesService.BuscarClientes();
             if (clientes == null)
                 return NotFound();
+
             return Ok(clientes);
-
-
-            //List<Cliente> clientes = new List<Cliente>();
-            //for (int i = 1; i < 6; i++)
-            //{
-            //    var c = new Cliente("Nome " + i, (i * 100000).ToString());
-            //    clientes.Add(c);
-            //}
-            //return Ok(clientes);
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(long id)
         {
-            return NotFound();
-            //var cliente = _clientesService.BuscarClientePorId(id);
-            //if (cliente == null)
-            //    return NotFound();
+            var cliente = _clientesService.BuscarClientePorId(id);
+            if (cliente == null)
+                return NotFound();
 
-            //return Ok(cliente);
+            return Ok(cliente);
         }
 
         [HttpGet("buscar/{nome}")]
@@ -65,7 +56,7 @@ namespace DigitalBank.API.Controllers
         public IActionResult Post([FromBody] Cliente novoCliente)
         {
             // return NotFound();
-            Cliente clienteAdicionado = _clientesService.AdicionarCliente(novoCliente);
+            var clienteAdicionado = _clientesService.AdicionarCliente(novoCliente);
 
             return Created("", clienteAdicionado);
         }

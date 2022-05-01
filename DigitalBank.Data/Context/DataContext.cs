@@ -2,7 +2,6 @@
 using DigitalBank.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace DigitalBank.Data.Context
 {
     public class DataContext : DbContext

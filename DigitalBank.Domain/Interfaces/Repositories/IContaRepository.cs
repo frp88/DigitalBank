@@ -23,9 +23,5 @@ namespace DigitalBank.Domain.Interfaces.Repositories
 
         bool Remover(long id);
 
-        // bool temContasNoDB();
-
-        // void SalvaCincoContasNoDB();
-
     }
 }

@@ -8,24 +8,20 @@ using System.Threading.Tasks;
 namespace DigitalBank.Domain.Interfaces.Repositories
 {
     public interface IClienteRepository
-    {     
-        IEnumerable<Cliente> Buscar();
+    {
+        Task<IEnumerable<Cliente>> Buscar();
 
         Cliente BuscarPorId(long id);
 
         IEnumerable<Cliente> BuscarPorNome(string nome);
 
-        Cliente Adicionar(Cliente novoCliente);
+        bool Adicionar(Cliente novoCliente);
 
         bool AdicionarConta(Cliente cliente, Conta conta);
 
-        Cliente Atualizar(long id, Cliente clienteAtualizado);
+        bool Atualizar(long id, Cliente clienteAtualizado);
 
         bool Remover(long id);
-
-        // bool temClientesNoDB();
-
-        // void SalvaCincoClientesNoDB();
 
     }
 }

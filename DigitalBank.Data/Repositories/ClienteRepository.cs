@@ -1,11 +1,10 @@
-﻿using DigitalBank.Data.Configurations;
-using DigitalBank.Data.Context;
+﻿using DigitalBank.Data.Context;
 using DigitalBank.Domain.Entities;
 using DigitalBank.Domain.Interfaces.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DigitalBank.Data.Repositories
@@ -19,14 +18,11 @@ namespace DigitalBank.Data.Repositories
             _context = context;
         }
 
-        public Cliente Adicionar(Cliente novoCliente)
+        public bool Adicionar(Cliente novoCliente)
         {
-            var cliente = new Cliente(novoCliente.nome, novoCliente.cpf);
-            _context.Add(cliente);
-            int resultado = _context.SaveChanges();
-            if (resultado == 0)
-                return null;
-            return cliente;
+            _context.Add(novoCliente);
+            var resultado = _context.SaveChanges();
+            return (resultado == 0 ? false : true);
         }
 
         public bool AdicionarConta(Cliente cliente, Conta conta)
@@ -34,23 +30,23 @@ namespace DigitalBank.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public Cliente Atualizar(long id, Cliente clienteAtualizado)
+        public bool Atualizar(long id, Cliente clienteAtualizado)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Cliente> Buscar()
+        public async Task<IEnumerable<Cliente>> Buscar()
         {
-            var clientes = _context.Clientes;
-            if (clientes == null || clientes.ToList().Count == 0)
-                return null;
-            return clientes;
-            //throw new NotImplementedException();
+            return await _context.Clientes
+                .AsNoTracking()
+                .ToListAsync();
         }
 
         public Cliente BuscarPorId(long id)
         {
-            throw new NotImplementedException();
+            var cliente =  _context.Clientes.FirstOrDefault(
+                       c => c.id == id);
+            return cliente;
         }
 
         public IEnumerable<Cliente> BuscarPorNome(string nome)
