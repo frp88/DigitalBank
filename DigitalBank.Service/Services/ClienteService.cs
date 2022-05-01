@@ -38,7 +38,6 @@ namespace DigitalBank.Service.Services
             var atualizacaoOk = await _clienteRepository.Atualizar(cliente);
             if (!atualizacaoOk)
                 return null;
-            // throw new Exception("Falha ao atualizar o cliente");
 
             return cliente;
         }
@@ -60,8 +59,6 @@ namespace DigitalBank.Service.Services
         public async Task<IEnumerable<Cliente>> BuscarClientePorNome(string nome)
         {
             var clientes = await _clienteRepository.BuscarPorNome(nome);
-            if (clientes == null)
-                return null;
             return clientes;
         }
 

@@ -26,6 +26,7 @@ namespace DigitalBank.Data.Repositories
 
         public async Task<bool> AdicionarConta(Cliente cliente, Conta conta)
         {
+            // Ainda precisa ser implementado
             throw new NotImplementedException();
         }
 

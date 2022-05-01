@@ -27,7 +27,9 @@ namespace DigitalBank.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("cpf")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
 
                     b.Property<DateTime>("dataDeCadastro")
                         .HasColumnType("datetime2");
@@ -36,10 +38,13 @@ namespace DigitalBank.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("email")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("nome")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<int>("situacao")
                         .HasColumnType("int");
@@ -85,21 +90,6 @@ namespace DigitalBank.Data.Migrations
                     b.ToTable("Contas");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("Conta");
-                });
-
-            modelBuilder.Entity("DigitalBank.Domain.Entities.Pessoa", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Pessoas");
                 });
 
             modelBuilder.Entity("DigitalBank.Domain.Entities.ContaCorrente", b =>

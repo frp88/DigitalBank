@@ -2,6 +2,7 @@
 using DigitalBank.Domain.Interfaces.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,11 @@ namespace DigitalBank.Domain.Entities
 {
     public abstract class Conta : IConta
     {
+        [Key]
         public long? id { get; set; }
         public Cliente cliente { get; set; }
+        [Required(ErrorMessage = "O campo {0} é obrigatório."),
+          Range(1, Int64.MaxValue)]
         public long numero { get; set; }
         public decimal saldo { get; private set; }
         public SituacaoConta situacao { get; private set; }

@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 namespace DigitalBank.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/cliente")]
     public class ClientesControllers : ControllerBase
     {
         private readonly IClienteService _clientesService;
 
         #region CONSTRUTOR
-        //public ClientesControllers() { }
-
         public ClientesControllers(IClienteService clientesService)
         {
             _clientesService = clientesService;
@@ -54,9 +52,7 @@ namespace DigitalBank.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Cliente novoCliente)
         {
-            // return NotFound();
             var clienteAdicionado = await _clientesService.AdicionarCliente(novoCliente);
-
             return Created("", clienteAdicionado);
         }
 

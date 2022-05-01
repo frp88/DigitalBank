@@ -2,17 +2,21 @@
 using DigitalBank.Domain.Interfaces.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace DigitalBank.Domain.Entities
 {
     public class Cliente : ICliente
     {
+        [Key]
         public long? id { get; set; }
+        [Required(ErrorMessage = "O campo {0} é obrigatório."),
+          MaxLength(255)]
         public string nome { get; set; }
+        [Required(ErrorMessage = "O campo {0} é obrigatório."),
+        MaxLength(11)]
         public string cpf { get; set; }
+        [MaxLength(255)]
         public string? email { get; set; }
         public DateTime? dataDeNascimento { get; set; }
         public DateTime dataDeCadastro { get; set; }

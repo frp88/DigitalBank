@@ -13,9 +13,9 @@ namespace DigitalBank.Data.Migrations
                 {
                     id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    cpf = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    nome = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    cpf = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
+                    email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     dataDeNascimento = table.Column<DateTime>(type: "datetime2", nullable: true),
                     dataDeCadastro = table.Column<DateTime>(type: "datetime2", nullable: false),
                     situacao = table.Column<int>(type: "int", nullable: false)
@@ -23,19 +23,6 @@ namespace DigitalBank.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Clientes", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Pessoas",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Pessoas", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -74,9 +61,6 @@ namespace DigitalBank.Data.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Contas");
-
-            migrationBuilder.DropTable(
-                name: "Pessoas");
 
             migrationBuilder.DropTable(
                 name: "Clientes");
