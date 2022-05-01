@@ -52,6 +52,9 @@ namespace DigitalBank.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Cliente novoCliente)
         {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
             var clienteAdicionado = await _clientesService.AdicionarCliente(novoCliente);
             return Created("", clienteAdicionado);
         }

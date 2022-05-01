@@ -13,15 +13,26 @@ namespace DigitalBank.Domain.Entities
     {
         [Key]
         public long? id { get; set; }
-        public Cliente cliente { get; set; }
-        [Required(ErrorMessage = "O campo {0} é obrigatório."),
-          Range(1, Int64.MaxValue)]
+                
+        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
+        [Range(1, Int64.MaxValue, ErrorMessage = "O campo {0} é inválido.")]
+        [Display(Name = "número")]
         public long numero { get; set; }
+        
         public decimal saldo { get; private set; }
+        
+        [Display(Name = "situação")]
         public SituacaoConta situacao { get; private set; }
+        
+        [DataType(DataType.DateTime)]
+        [Display(Name = "data de cadastro")]
+        
         public DateTime dataDeCadastro { get; set; }
-
+        [DataType(DataType.DateTime)]
+        [Display(Name = "data de finalização")]
         public DateTime? dataDeFinalizacao { get; set; }
+
+        public Cliente cliente { get; set; }
 
         public Conta()
         {

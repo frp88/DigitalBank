@@ -12,10 +12,10 @@ namespace DigitalBank.Data.Context
         public DataContext() { }
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
-        {
-            optionBuilder.UseSqlServer(DbConfiguration.getConnection());
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
+        //{
+        //    optionBuilder.UseSqlServer(DbConfiguration.getConnection());
+        //}
 
     }
 }

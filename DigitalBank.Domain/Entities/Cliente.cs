@@ -10,16 +10,30 @@ namespace DigitalBank.Domain.Entities
     {
         [Key]
         public long? id { get; set; }
+
         [Required(ErrorMessage = "O campo {0} é obrigatório."),
           MaxLength(255)]
         public string nome { get; set; }
-        [Required(ErrorMessage = "O campo {0} é obrigatório."),
-        MaxLength(11)]
+
+        [Required(ErrorMessage = "O campo {0} é obrigatório.")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "A quantidade de dígitos para o campo {0} é inválida.")]
+        [Display(Name = "CPF")]
         public string cpf { get; set; }
+
         [MaxLength(255)]
+        [EmailAddress(ErrorMessage = "O campo {0} é inválido.")]
+        [Display(Name = "e-mail")]
         public string? email { get; set; }
+
+        [DataType(DataType.Date)]
+        [Display(Name = "data de nascimento")]
         public DateTime? dataDeNascimento { get; set; }
+
+        [DataType(DataType.DateTime)]
+        [Display(Name = "data de cadastro")]
         public DateTime dataDeCadastro { get; set; }
+
+        [Display(Name = "situação")]
         public SituacaoCliente situacao { get; set; }
 
         public ICollection<Conta> contas { get; set; }

@@ -12,7 +12,7 @@ namespace DigitalBank.API.Controllers
         private readonly IContaService _contasService;
 
         #region CONSTRUTOR
-       
+
         public ContasControllers(IContaService contasService)
         {
             _contasService = contasService;
@@ -52,10 +52,12 @@ namespace DigitalBank.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] ContaCorrente novaContaCorrente)
+        public async Task<IActionResult> Post([FromBody] Conta novaConta)
         {
-            //ContaCorrente cc = (ContaCorrente)novaConta;
-            Conta contaAdicionada = await _contasService.AdicionarConta(novaContaCorrente);
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            Conta contaAdicionada = await _contasService.AdicionarConta(novaConta);
             return Created("", contaAdicionada);
         }
 
