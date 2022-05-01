@@ -11,16 +11,16 @@ namespace DigitalBank.Service.Interfaces
     {
         Task<IEnumerable<Cliente>> BuscarClientes();
 
-        Cliente BuscarClientePorId(long id);
+        Task<Cliente> BuscarClientePorId(long id);
 
-        IEnumerable<Cliente> BuscarClientePorNome(string nome);
+        Task<IEnumerable<Cliente>> BuscarClientePorNome(string nome);
 
-        Cliente AdicionarCliente(Cliente novoCliente);
+        Task<Cliente> AdicionarCliente(Cliente novoCliente);
 
-        bool AdicionarContaParaCliente(Cliente cliente, Conta conta);
+        Task<bool> AdicionarContaParaCliente(Cliente cliente, Conta conta);
 
-        Cliente AtualizarCliente(long id, Cliente clienteAtualizado);
+        Task<Cliente> AtualizarCliente(long id, Cliente clienteAtualizado);
 
-        bool RemoverCliente(long id);
+        Task<bool> RemoverCliente(long id, Cliente clienteRemovido);
     }
 }

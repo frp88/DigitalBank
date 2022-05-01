@@ -18,21 +18,21 @@ namespace DigitalBank.Data.Repositories
             _context = context;
         }
 
-        public bool Adicionar(Cliente novoCliente)
+        public async Task<bool> Adicionar(Cliente novoCliente)
         {
             _context.Add(novoCliente);
-            var resultado = _context.SaveChanges();
-            return (resultado == 0 ? false : true);
+            return await _context.SaveChangesAsync() > 0;
         }
 
-        public bool AdicionarConta(Cliente cliente, Conta conta)
+        public async Task<bool> AdicionarConta(Cliente cliente, Conta conta)
         {
             throw new NotImplementedException();
         }
 
-        public bool Atualizar(long id, Cliente clienteAtualizado)
+        public async Task<bool> Atualizar(long id, Cliente clienteAtualizado)
         {
-            throw new NotImplementedException();
+            _context.Update(clienteAtualizado);
+            return await _context.SaveChangesAsync() > 0;
         }
 
         public async Task<IEnumerable<Cliente>> Buscar()
@@ -42,21 +42,25 @@ namespace DigitalBank.Data.Repositories
                 .ToListAsync();
         }
 
-        public Cliente BuscarPorId(long id)
+        public async Task<Cliente> BuscarPorId(long id)
         {
-            var cliente =  _context.Clientes.FirstOrDefault(
-                       c => c.id == id);
-            return cliente;
+            return await _context.Clientes
+                 .AsNoTracking()
+                .FirstOrDefaultAsync(c => c.id == id);
         }
 
-        public IEnumerable<Cliente> BuscarPorNome(string nome)
+        public async Task<IEnumerable<Cliente>> BuscarPorNome(string nome)
         {
-            throw new NotImplementedException();
+            return await _context.Clientes
+               .AsNoTracking()
+               .Where(c => c.nome.Contains(nome))
+               .ToListAsync();
         }
 
-        public bool Remover(long id)
+        public async Task<bool> Remover(long id, Cliente clienteRemovido)
         {
-            throw new NotImplementedException();
+            _context.Remove(clienteRemovido);
+            return await _context.SaveChangesAsync() > 0;
         }
     }
 }

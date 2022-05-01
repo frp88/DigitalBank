@@ -32,9 +32,9 @@ namespace DigitalBank.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(long id)
+        public async Task<IActionResult> Get(long id)
         {
-            var cliente = _clientesService.BuscarClientePorId(id);
+            var cliente = await _clientesService.BuscarClientePorId(id);
             if (cliente == null)
                 return NotFound();
 
@@ -42,7 +42,7 @@ namespace DigitalBank.API.Controllers
         }
 
         [HttpGet("buscar/{nome}")]
-        public IActionResult Get(string nome)
+        public async Task<IActionResult> Get(string nome)
         {
             return NotFound();
             //var clientes = _clientesService.BuscarClientePorNome(nome);
@@ -53,16 +53,16 @@ namespace DigitalBank.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Cliente novoCliente)
+        public async Task<IActionResult> Post([FromBody] Cliente novoCliente)
         {
             // return NotFound();
-            var clienteAdicionado = _clientesService.AdicionarCliente(novoCliente);
+            var clienteAdicionado = await _clientesService.AdicionarCliente(novoCliente);
 
             return Created("", clienteAdicionado);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(long id, [FromBody] Cliente clienteAtualizado)
+        public async Task<IActionResult> Put(long id, [FromBody] Cliente clienteAtualizado)
         {
             return NotFound();
 
@@ -74,7 +74,7 @@ namespace DigitalBank.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(long id)
+        public async Task<IActionResult> Delete(long id)
         {
             return NotFound();
 

@@ -17,20 +17,20 @@ namespace DigitalBank.Service.Services
             _clienteRepository = clienteRepository;
         }
 
-        public Cliente AdicionarCliente(Cliente novoCliente)
+        public async Task<Cliente> AdicionarCliente(Cliente novoCliente)
         {
-            var clienteAdicionado = _clienteRepository.Adicionar(novoCliente);
+            var clienteAdicionado = await _clienteRepository.Adicionar(novoCliente);
             if (!clienteAdicionado)
                 throw new Exception("Falha ao cadastrar o cliente");
             return novoCliente;
         }
 
-        public bool AdicionarContaParaCliente(Cliente cliente, Conta conta)
+        public async Task<bool> AdicionarContaParaCliente(Cliente cliente, Conta conta)
         {
-            return _clienteRepository.AdicionarConta(cliente, conta);
+            return await _clienteRepository.AdicionarConta(cliente, conta);
         }
 
-        public Cliente AtualizarCliente(long id, Cliente clienteAtualizado)
+        public async Task<Cliente> AtualizarCliente(long id, Cliente clienteAtualizado)
         {
             //clienteAtualizado = _clienteRepository.Atualizar(id, clienteAtualizado);
             //return clienteAtualizado;
@@ -52,23 +52,23 @@ namespace DigitalBank.Service.Services
             //return clientes;
         }
 
-        public Cliente BuscarClientePorId(long id)
+        public async Task<Cliente> BuscarClientePorId(long id)
         {
-            var cliente = _clienteRepository.BuscarPorId(id);
+            var cliente = await _clienteRepository.BuscarPorId(id);
             return cliente;
         }
 
-        public IEnumerable<Cliente> BuscarClientePorNome(string nome)
+        public async Task<IEnumerable<Cliente>> BuscarClientePorNome(string nome)
         {
-            var clientes = _clienteRepository.BuscarPorNome(nome);
+            var clientes = await _clienteRepository.BuscarPorNome(nome);
             if (clientes == null)
                 return null;
             return clientes;
         }
 
-        public bool RemoverCliente(long id)
+        public async Task<bool> RemoverCliente(long id, Cliente clienteRemovido)
         {
-            return _clienteRepository.Remover(id);
+            return await _clienteRepository.Remover(id, clienteRemovido);
         }
     }
 }
