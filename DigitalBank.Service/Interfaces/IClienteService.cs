@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DigitalBank.Domain.Interfaces.Services
+namespace DigitalBank.Service.Interfaces
 {
     public interface IClienteService
-    {     
+    {
         IEnumerable<Cliente> BuscarCliente();
 
         Cliente BuscarClientePorId(long id);
@@ -17,15 +17,10 @@ namespace DigitalBank.Domain.Interfaces.Services
 
         Cliente AdicionarCliente(Cliente novoCliente);
 
-        bool AdicionarContaParaCliente(Conta conta);
+        bool AdicionarContaParaCliente(Cliente cliente, Conta conta);
 
         Cliente AtualizarCliente(long id, Cliente clienteAtualizado);
 
         bool RemoverCliente(long id);
-
-        // bool temClientesNoDB();
-
-        // void SalvaCincoClientesNoDB();
-
     }
 }

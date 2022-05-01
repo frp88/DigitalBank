@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DigitalBank.Data\DigitalBank.Data.csproj" />
     <ProjectReference Include="..\DigitalBank.Domain\DigitalBank.Domain.csproj" />
+    <ProjectReference Include="..\DigitalBank.Service\DigitalBank.Service.csproj" />
   </ItemGroup>
 
 </Project>

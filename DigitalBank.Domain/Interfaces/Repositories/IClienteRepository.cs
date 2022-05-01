@@ -17,7 +17,7 @@ namespace DigitalBank.Domain.Interfaces.Repositories
 
         Cliente Adicionar(Cliente novoCliente);
 
-        bool AdicionarConta(Conta conta);
+        bool AdicionarConta(Cliente cliente, Conta conta);
 
         Cliente Atualizar(long id, Cliente clienteAtualizado);
 
