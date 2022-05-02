@@ -20,8 +20,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DigitalBank.Data\DigitalBank.Data.csproj" />
-  </ItemGroup>
-
 </Project>

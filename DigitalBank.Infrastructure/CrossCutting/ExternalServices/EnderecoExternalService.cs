@@ -1,16 +1,14 @@
 ﻿using DigitalBank.Domain.Entities;
-using DigitalBank.Domain.Interfaces.Utilities;
-using Newtonsoft.Json;
+using DigitalBank.Domain.Interfaces.ExternalServices;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace DigitalBank.Data.Utilities
+namespace DigitalBank.Infrastructure.CrossCutting.ExternalServices
 {
-    public class EnderecoUtility : IEnderecoUtility
+    public class EnderecoExternalService: IEnderecoExternalService
     {
-        public EnderecoUtility() { }
+        public EnderecoExternalService() { }
 
         public async Task<Endereco> BuscarPorCep(string cep)
         {
@@ -20,7 +18,7 @@ namespace DigitalBank.Data.Utilities
             resposta.EnsureSuccessStatusCode();
 
             string result = await resposta.Content.ReadAsStringAsync();
-                      
+
             JObject jsonRetorno = JObject.Parse(result);
 
             Endereco endereco = new Endereco();
