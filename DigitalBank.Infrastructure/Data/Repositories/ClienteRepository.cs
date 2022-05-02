@@ -1,13 +1,13 @@
-﻿using DigitalBank.Data.Context;
-using DigitalBank.Domain.Entities;
+﻿using DigitalBank.Domain.Entities;
 using DigitalBank.Domain.Interfaces.Repositories;
+using DigitalBank.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DigitalBank.Data.Repositories
+namespace DigitalBank.Infrastructure.Data.Repositories
 {
     public class ClienteRepository : IClienteRepository
     {

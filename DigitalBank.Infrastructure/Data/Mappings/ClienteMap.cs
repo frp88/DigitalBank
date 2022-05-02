@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DigitalBank.Data.Mappings
+namespace DigitalBank.Infrastructure.Data.Mappings
 {
     public class ClienteMap : IEntityTypeConfiguration<Cliente>
     {

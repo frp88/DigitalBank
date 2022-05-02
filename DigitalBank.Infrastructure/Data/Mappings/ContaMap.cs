@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DigitalBank.Data.Mappings
+namespace DigitalBank.Infrastructure.Data.Mappings
 {
-    internal class ContaMap : IEntityTypeConfiguration<Conta>
+    public class ContaMap : IEntityTypeConfiguration<Conta>
     {
         public void Configure(EntityTypeBuilder<Conta> builder)
         {
@@ -24,7 +24,7 @@ namespace DigitalBank.Data.Mappings
 
             builder.Property(p => p.situacao)
               .HasColumnType("int");
-                        
+
             builder.Property(p => p.dataDeCadastro)
               .HasColumnType("datetime");
 

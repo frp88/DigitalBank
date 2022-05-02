@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DigitalBank.Data.Configurations
+namespace DigitalBank.Infrastructure.Data.Configurations
 {
     static class DbConfiguration
     {

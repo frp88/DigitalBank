@@ -1,10 +1,10 @@
-﻿using DigitalBank.Data.Repositories;
-using DigitalBank.Domain.Entities;
-using System.Threading.Tasks;
+﻿using DigitalBank.Domain.Entities;
+using DigitalBank.Infrastructure.Data.Repositories;
 using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
-namespace DigitalBank.Data.Test.Repositories
+namespace DigitalBank.Infrastructure.Test.Data.Repositories
 {
     public class ClienteRepositoryTests
     {
@@ -43,7 +43,6 @@ namespace DigitalBank.Data.Test.Repositories
         {
             var cliente = new Cliente("João", "22244466688");
             var sucesso = await _clienteRepository.Adicionar(cliente);
-            //Assert.NotNull(cliente);
             Assert.True(sucesso);
         }
 
