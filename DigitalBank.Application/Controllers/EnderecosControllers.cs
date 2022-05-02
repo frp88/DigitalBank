@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using DigitalBank.Domain.Entities;
 using DigitalBank.Domain.Interfaces.Services;
 using System.Threading.Tasks;
 
-namespace DigitalBank.API.Controllers
+namespace DigitalBank.Application.Controllers
 {
     [ApiController]
     [Route("api/cep")]
