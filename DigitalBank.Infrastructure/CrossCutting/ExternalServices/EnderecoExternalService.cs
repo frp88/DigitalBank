@@ -1,16 +1,15 @@
 ﻿using DigitalBank.Domain.Entities;
-using DigitalBank.Domain.Interfaces.ExternalServices;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace DigitalBank.Infrastructure.CrossCutting.ExternalServices
 {
-    public class EnderecoExternalService: IEnderecoExternalService
+    public class EnderecoExternalService
     {
         public EnderecoExternalService() { }
 
-        public async Task<Endereco> BuscarPorCep(string cep)
+        public static async Task<Endereco> BuscarPorCep(string cep)
         {
             HttpClient cliente = new HttpClient();
 

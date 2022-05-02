@@ -70,5 +70,7 @@ namespace DigitalBank.Domain.Entities
         public int RetornarQuantidadeContasFinalizadas() =>
             contas.Count(c => c.dataDeFinalizacao.HasValue);
 
+
+
     }
 }

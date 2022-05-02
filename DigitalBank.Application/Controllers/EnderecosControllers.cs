@@ -8,12 +8,12 @@ namespace DigitalBank.Application.Controllers
     [Route("api/cep")]
     public class EnderecosControllers : ControllerBase
     {
-        private readonly IEnderecoService _enderecosService;
+        private readonly IEnderecoService _enderecoService;
 
         #region CONSTRUTOR
-        public EnderecosControllers(IEnderecoService enderecosService)
+        public EnderecosControllers(IEnderecoService enderecoService)
         {
-            _enderecosService = enderecosService;
+            _enderecoService = enderecoService;
         }
         #endregion
 
@@ -22,7 +22,7 @@ namespace DigitalBank.Application.Controllers
         public async Task<IActionResult> Get()
         {
             string cep = "15370496";
-            var endereco = await _enderecosService.BuscarEnderecoPorCep(cep);
+            var endereco = await _enderecoService.BuscarEnderecoPorCep(cep);
             if (endereco == null)
                 return NotFound();
 
@@ -33,7 +33,7 @@ namespace DigitalBank.Application.Controllers
         public async Task<IActionResult> Get(string cep)
         {
             cep.Replace("-", "");
-            var endereco = await _enderecosService.BuscarEnderecoPorCep(cep);
+            var endereco = await _enderecoService.BuscarEnderecoPorCep(cep);
             if (endereco == null)
                 return NotFound();
 

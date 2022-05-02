@@ -1,6 +1,5 @@
 using DigitalBank.Infrastructure.Data.Context;
 using DigitalBank.Infrastructure.Data.Repositories;
-using DigitalBank.Domain.Interfaces.ExternalServices;
 using DigitalBank.Domain.Interfaces.Repositories;
 using DigitalBank.Domain.Interfaces.Services;
 using DigitalBank.Infrastructure.CrossCutting.ExternalServices;
@@ -35,7 +34,6 @@ namespace DigitalBank.Application
             services.AddScoped<IContaRepository, ContaRepository>();
             services.AddScoped<IContaService, ContaService>();
 
-            services.AddScoped<IEnderecoExternalService, EnderecoExternalService>();
             services.AddScoped<IEnderecoService, EnderecoService>();
 
             services.AddControllers();
