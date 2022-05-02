@@ -5,7 +5,7 @@ Esta Solução foi desenvolvida para um sistema de um Banco Digital fictício. I
 Possui as Interfaces, Entidades e Enumerações utilizadas na Solução. Os arquivos desse projeto foram implementados baseados nos principais conceitos da programação orientada a objetos (POO). 
 
 ## 2) Projeto “DigitalBank.Infrastructure” 
-Dividido em “Data”, módulo responsável por realizar a conexão com o Banco de Dados, persistência e recuperação dos dados. Este módulo contém o arquivo “DataContext” que estende de “DbContext” do EntityFrameworkCore. O EntityFrameworkCore foi utilizado para realizar a persistência dos dados no Banco de Dados. ***OBS.:*** Foi utilizado a técnica “***code-***first***”, em que primeiramente foi construído a solução e o Banco de Dados foi gerado a partir dos seguintes comandos:
+Dividido em “Data”, módulo responsável por realizar a conexão com o Banco de Dados, persistência e recuperação dos dados. Este módulo contém o arquivo “DataContext” que estende de “DbContext” do EntityFrameworkCore. O EntityFrameworkCore foi utilizado para realizar a persistência dos dados no Banco de Dados. ***OBS.:*** Foi utilizado a técnica “***code***-***first***”, em que primeiramente foi construído a solução e o Banco de Dados foi gerado a partir dos seguintes comandos:
 “*dotnet ef migrations add Initial -o Data/Migrations*”
 “*dotnet ef database update*”
 
