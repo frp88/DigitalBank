@@ -1,9 +1,9 @@
-﻿using Microsoft.Data.Sqlite;
-using DigitalBank.Data.Context;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.Sqlite;
+using DigitalBank.Infrastructure.Data.Context;
 using DigitalBank.Domain.Entities;
 
-namespace DigitalBank.Data.Test
+namespace DigitalBank.Infrastructure.Test
 {
     public class DBInMemory
     {
