@@ -6,8 +6,10 @@ Possui as Interfaces, Entidades e Enumerações utilizadas na Solução. Os arqu
 
 ## 2) Projeto “DigitalBank.Infrastructure” 
 Dividido em “Data”, módulo responsável por realizar a conexão com o Banco de Dados, persistência e recuperação dos dados. Este módulo contém o arquivo “DataContext” que estende de “DbContext” do EntityFrameworkCore. O EntityFrameworkCore foi utilizado para realizar a persistência dos dados no Banco de Dados. ***OBS.:*** Foi utilizado a técnica “***code***-***first***”, em que primeiramente foi construído a solução e o Banco de Dados foi gerado a partir dos seguintes comandos:
-“*dotnet ef migrations add Initial -o Data/Migrations*”
-“*dotnet ef database update*”
+
+```dotnet ef migrations add Initial -o Data/Migrations```
+
+```dotnet ef database update```
 
 Neste projeto foram instalados os seguintes pacotes do NuGet: “Microsoft.EntityFrameworkCore (5.0.9)”, “Microsoft.EntityFrameworkCore.Design (5.0.9)”, “Microsoft.EntityFrameworkCore.SqlServer (5.0.9)”, “Microsoft.EntityFrameworkCore.Tools (5.0.9)” e Newtonsoft.Json (13.0.1).
 O outro módulo deste projeto é o “CrossCutting”, em que foi implementado um serviço que conecta com a API ViaCEP e uma classe para verificar se o CPF digitado é válido.
