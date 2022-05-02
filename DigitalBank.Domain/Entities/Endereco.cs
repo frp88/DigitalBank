@@ -32,7 +32,7 @@ namespace DigitalBank.Domain.Entities
         
         [MaxLength(2, ErrorMessage = "A {0} deve ter exatamente 2 caracteres."), Display(Name = "UF")]
         public string uf { get; set; }
-      
+
         public Endereco() { }
 
         public Endereco(string cep)
