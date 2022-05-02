@@ -13,7 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
-namespace DigitalBank.API
+namespace DigitalBank.Application
 {
     public class Startup
     {
@@ -26,6 +26,7 @@ namespace DigitalBank.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddDbContext<DataContext>(context => context.UseSqlServer(Configuration.GetConnectionString("Default")));
 
             services.AddScoped<IClienteRepository, ClienteRepository>();
