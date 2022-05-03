@@ -1,10 +1,10 @@
 ﻿using DigitalBank.Domain.Entities;
-using DigitalBank.Infrastructure.Data.Repositories;
+using DigitalBank.Infra.Data.Repositories;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace DigitalBank.Infrastructure.Test.Data.Repositories
+namespace DigitalBank.Infra.Data.Tests.Repositories
 {
     public class ClienteRepositoryTests
     {
@@ -12,7 +12,7 @@ namespace DigitalBank.Infrastructure.Test.Data.Repositories
 
         public ClienteRepositoryTests()
         {
-            var dbInMemory = new DBInMemory();
+            var dbInMemory = new DbInMemory();
             var context = dbInMemory.GetContext();
             _clienteRepository = new ClienteRepository(context);
         }

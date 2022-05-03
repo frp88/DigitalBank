@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DigitalBank.Infrastructure\DigitalBank.Infrastructure.csproj" />
+    <ProjectReference Include="..\DigitalBank.Infra.Data\DigitalBank.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

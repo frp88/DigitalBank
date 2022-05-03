@@ -1,11 +1,11 @@
 ﻿using DigitalBank.Domain.Entities;
 using DigitalBank.Domain.Interfaces.Repositories;
-using DigitalBank.Infrastructure.Data.Context;
+using DigitalBank.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DigitalBank.Infrastructure.Data.Repositories
+namespace DigitalBank.Infra.Data.Repositories
 {
     public class ContaRepository : IContaRepository
     {

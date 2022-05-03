@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Data.Sqlite;
-using DigitalBank.Infrastructure.Data.Context;
 using DigitalBank.Domain.Entities;
+using DigitalBank.Infra.Data.Context;
 
-namespace DigitalBank.Infrastructure.Test
+namespace DigitalBank.Infra.Data.Tests
 {
-    public class DBInMemory
+    public class DbInMemory
     {
         private DataContext _context;
-        public DBInMemory()
+        public DbInMemory()
         {
             var connection = new SqliteConnection("DataSource=:memory:");
             connection.Open();
