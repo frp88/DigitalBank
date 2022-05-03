@@ -30,10 +30,10 @@ Além disso, este projeto possui a pasta “Controllers. Nessa pasta foram criad
 Nesse foram implementadas as classes que interligam os demais projetos da solução e a maioria das regras de negócio. 
 
 ## 6) Projeto “DigitalBank.Domain.Test” 
-Projeto criado utilizando o template “xUnit Test Project” em que foram implementados os testes de unidade para as classes do projeto “DigitalBank.Domain”. 
+Projeto criado utilizando o template “xUnit Test Project” em que foram implementados os testes unitários para as classes do projeto “DigitalBank.Domain”. 
 
 ## 7) Projeto “DigitalBank.Infra.Data.Test” 
-Projeto criado utilizando o template “xUnit Test Project” em que foram implementados os testes de unidade do projeto “DigitalBank.Infra.Data”. 
+Projeto criado utilizando o template “xUnit Test Project” em que foram implementados os testes unitários do projeto “DigitalBank.Infra.Data”. 
 
 Neste projeto foi instalado pacote do NuGet “Microsoft.EntityFrameworkCore.Sqlite (5.0.9)”, para a implementação da classe “DbInMemory.cs” e, com isso foi possível testar as principais operações de persistência e recuperação de dados em um banco de dados em memória por meio do Sqlite. 
 
