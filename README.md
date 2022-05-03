@@ -1,11 +1,11 @@
 # Digital Bank
-Esta Solução foi desenvolvida para um sistema de um Banco Digital fictício. Implementada utilizando o Visual Studio Community 2022 e o framework .NET 5, os dados foram armazenados no banco de dados Sql Server por meio do Entity Framework (“***code***-***first***”). Esta solução é composta por 6 (seis) projetos descritos a seguir:
+Esta Solução foi desenvolvida para um sistema de um Banco Digital fictício. Implementada utilizando o Visual Studio Community 2022 e o framework .NET 5, os dados foram armazenados no banco de dados Sql Server por meio do ORM Entity Framework Core (“***code***-***first***”). Esta solução é composta por 6 (seis) projetos descritos a seguir:
 
 ## 1) Projeto “DigitalBank.Domain” 
 Possui as Interfaces, Entidades e Enumerações utilizadas na Solução. Os arquivos desse projeto foram implementados baseados nos principais conceitos da programação orientada a objetos (POO). 
 
 ## 2) Projeto “DigitalBank.Infrastructure” 
-Dividido em “Data”, módulo responsável por realizar a conexão com o Banco de Dados, persistência e recuperação dos dados. Este módulo contém o arquivo “DataContext” que estende de “DbContext” do EntityFrameworkCore. 
+Dividido em “Data”, módulo responsável por realizar a conexão com o Banco de Dados, persistência e recuperação dos dados. Este módulo contém o arquivo “DataContext” que estende de “DbContext” do ORM Entity Framework Core. 
 
 O EntityFrameworkCore foi utilizado para realizar a persistência dos dados no Banco de Dados. ***OBS.:*** Foi utilizado a técnica “***code***-***first***”, em que primeiramente foi construído a solução e o Banco de Dados foi gerado a partir dos seguintes comandos:
 
