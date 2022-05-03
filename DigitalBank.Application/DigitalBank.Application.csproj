@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DigitalBank.Domain\DigitalBank.Domain.csproj" />
-    <ProjectReference Include="..\DigitalBank.Infrastructure\DigitalBank.Infrastructure.csproj" />
+    <ProjectReference Include="..\DigitalBank.Infra.Data\DigitalBank.Infra.Data.csproj" />
     <ProjectReference Include="..\DigitalBank.Service\DigitalBank.Service.csproj" />
   </ItemGroup>
 

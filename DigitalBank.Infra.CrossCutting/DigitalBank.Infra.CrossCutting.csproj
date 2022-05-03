@@ -5,8 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DigitalBank.Domain\DigitalBank.Domain.csproj" />
-    <ProjectReference Include="..\DigitalBank.Infra.CrossCutting\DigitalBank.Infra.CrossCutting.csproj" />
   </ItemGroup>
 
 </Project>

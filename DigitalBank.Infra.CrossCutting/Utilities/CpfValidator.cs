@@ -1,11 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace DigitalBank.Infrastructure.CrossCutting.Utilities
+﻿
+namespace DigitalBank.Infra.CrossCutting.Utilities
 {
-    public class CpfValidador 
+    public class CpfValidator
     {
-        public CpfValidador() { }
+        public CpfValidator() { }
 
         public static bool cpfValido(string cpf)
         {

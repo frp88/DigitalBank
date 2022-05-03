@@ -1,8 +1,7 @@
 ﻿using DigitalBank.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
-namespace DigitalBank.Infrastructure.Data.Mappings
+namespace DigitalBank.Infra.Data.Mappings
 {
     public class ContaMap : IEntityTypeConfiguration<Conta>
     {

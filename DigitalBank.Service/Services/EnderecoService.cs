@@ -1,6 +1,6 @@
 ﻿using DigitalBank.Domain.Entities;
 using DigitalBank.Domain.Interfaces.Services;
-using DigitalBank.Infrastructure.CrossCutting.ExternalServices;
+using DigitalBank.Infra.CrossCutting.ExternalServices;
 using System.Threading.Tasks;
 
 namespace DigitalBank.Service.Services

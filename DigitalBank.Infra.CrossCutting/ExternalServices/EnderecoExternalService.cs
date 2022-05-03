@@ -3,7 +3,8 @@ using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace DigitalBank.Infrastructure.CrossCutting.ExternalServices
+
+namespace DigitalBank.Infra.CrossCutting.ExternalServices
 {
     public class EnderecoExternalService
     {

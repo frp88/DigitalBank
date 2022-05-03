@@ -1,8 +1,7 @@
-using DigitalBank.Infrastructure.Data.Context;
-using DigitalBank.Infrastructure.Data.Repositories;
+using DigitalBank.Infra.Data.Context;
+using DigitalBank.Infra.Data.Repositories;
 using DigitalBank.Domain.Interfaces.Repositories;
 using DigitalBank.Domain.Interfaces.Services;
-using DigitalBank.Infrastructure.CrossCutting.ExternalServices;
 using DigitalBank.Service.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
