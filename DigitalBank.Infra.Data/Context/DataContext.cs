@@ -10,6 +10,7 @@ namespace DigitalBank.Infra.Data.Context
         public DbSet<Conta> Contas { get; set; }
 
         public DataContext() { }
+
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)

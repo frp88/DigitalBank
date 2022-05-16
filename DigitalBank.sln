@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalBank.Infra.Data", "D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalBank.Infra.Data.Tests", "DigitalBank.Infra.Data.Tests\DigitalBank.Infra.Data.Tests.csproj", "{4303F738-AEE3-4D48-9BF7-5C384F93D336}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBank.Infra.CrossCutting", "DigitalBank.Infra.CrossCutting\DigitalBank.Infra.CrossCutting.csproj", "{CB1CCB7D-A67C-4A6A-BAEC-ABED2664EC25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalBank.Infra.CrossCutting", "DigitalBank.Infra.CrossCutting\DigitalBank.Infra.CrossCutting.csproj", "{CB1CCB7D-A67C-4A6A-BAEC-ABED2664EC25}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{15D38408-56D5-4931-B979-E39323029BCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{CB1CCB7D-A67C-4A6A-BAEC-ABED2664EC25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB1CCB7D-A67C-4A6A-BAEC-ABED2664EC25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB1CCB7D-A67C-4A6A-BAEC-ABED2664EC25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15D38408-56D5-4931-B979-E39323029BCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15D38408-56D5-4931-B979-E39323029BCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15D38408-56D5-4931-B979-E39323029BCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15D38408-56D5-4931-B979-E39323029BCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
